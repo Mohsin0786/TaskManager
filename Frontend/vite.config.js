@@ -8,7 +8,8 @@ export default defineConfig({
     watch: {
       usePolling: true
     },
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
   },
   define: {
     'process.env': {}
