@@ -57,7 +57,7 @@ npm install
     ```plaintext
     # .env
 
-    VITE_API_URL=https://taskmanager-4bvt.onrender.com
+    VITE_API_URL=url of production or local
 
     VITE_ENV=production
     ```
