@@ -111,7 +111,7 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed, handleDet
     bg = "#42a5f5";
     taskToMap = closed;
   }
-
+  const previousTasks = JSON.parse(JSON.stringify(tasks));
   const addItemToSection = async (id) => {
     setTasks((prev) => {
       return prev.map((task) =>
@@ -123,7 +123,7 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed, handleDet
     
      
     } catch (error) {
-      setTasks(tasks)
+      setTasks(previousTasks)
       alert('Failed to move the cards')
       console.error('Error updating task status:', error);
     }
