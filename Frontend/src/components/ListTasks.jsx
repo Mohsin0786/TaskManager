@@ -113,15 +113,18 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed, handleDet
   }
 
   const addItemToSection = async (id) => {
+    setTasks((prev) => {
+      return prev.map((task) =>
+        task._id === id ? { ...task, status: status } : task
+      );
+    });
     try {
       const response = await axios.patch(`${url}/api/tasks/task/${id}`, { status }, { headers: { Authorization: `Bearer ${token}` } });
-      console.log("move",response)
-      setTasks((prev) => {
-        return prev.map((task) =>
-          task._id === id ? { ...task, status: status } : task
-        );
-      });
+    
+     
     } catch (error) {
+      setTasks(tasks)
+      alert('Failed to move the cards')
       console.error('Error updating task status:', error);
     }
   };
