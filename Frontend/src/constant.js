@@ -1,6 +1,6 @@
 const prod = {
     url: {
-     API_URL: "https://backend-8qoa.onrender.com",
+     API_URL: "https://taskmanager-4bvt.onrender.com/",
      }
    }
    const dev = {
