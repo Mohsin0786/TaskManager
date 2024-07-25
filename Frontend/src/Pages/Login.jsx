@@ -1,5 +1,4 @@
 import React, { useState,useContext } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {
     Box,
@@ -10,9 +9,10 @@ import {
 } from "@mui/material";
 import { useAuth } from '../context/AuthContext';
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 const Login = () => {
 
-    const { is_Auth, setAuth,login } = useAuth()
+    const { login } = useAuth()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -89,7 +89,9 @@ const Login = () => {
                                 <Box sx={{ textAlign: "center" }}>
                                     <Typography variant="body2">
                                         Don't have an account?
-                                        <Button color="primary">Signup</Button>
+                                        <Link to="/register"  sx={{ color: '#4285F4' }}>
+                                    Signin
+                                </Link>
                                     </Typography>
                                     <Button fullWidth variant="outlined" sx={{ mt: 2 }}>
                                         Login with Google

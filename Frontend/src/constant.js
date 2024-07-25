@@ -9,5 +9,5 @@ const prod = {
     }
    };
 
-   console.log(import.meta.env)
+   console.log(import.meta.env.MODE)
 export const config = import.meta.env.MODE === "development" ? dev : prod

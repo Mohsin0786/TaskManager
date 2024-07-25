@@ -6,8 +6,9 @@ import {
     Typography,
     Container,
     Paper,
-    Link,
+   
 } from '@mui/material';
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import GoogleIcon from '@mui/icons-material/Google';
@@ -30,17 +31,12 @@ const SignupForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission here
-        console.log(formData);
-        // e.preventDefault();
         if (formData.password !== formData.confirmPassword) {
             setError('Passwords do not match');
             return;
         }
 
         setError('');
-        // setLoading(true);
-
         try {
             const response = await register(formData)
             if (response) {
@@ -130,7 +126,7 @@ const SignupForm = () => {
                         <Box sx={{ textAlign: 'center', mt: 2, mb: 2 }}>
                             <Typography variant="body2">
                                 Already have an account?{' '}
-                                <Link href="/" underline="hover" sx={{ color: '#4285F4' }}>
+                                <Link to="/"  sx={{ color: '#4285F4' }}>
                                     Login
                                 </Link>
                             </Typography>
